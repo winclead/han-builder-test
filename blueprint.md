@@ -1,29 +1,24 @@
 # Simple To-Do List App
 
 ## Overview
+A simple, modern To-Do List application built with vanilla HTML, CSS, and JavaScript. It features a clean UI, Web Components for task items, and support for both light and dark themes.
 
-This is a simple, client-side To-Do List application. It allows users to add tasks to a list and remove them by clicking on them. This project serves as a great practice example for fundamental web development concepts without relying on external APIs.
+## Features
+- **Task Management:** Add tasks via input field.
+- **Task Deletion:** Click on a task to remove it.
+- **Web Components:** Uses custom elements for encapsulated task items.
+- **Theme Support:** Toggle between Light and Dark modes.
+- **Persistence:** Theme preference is saved in local storage.
 
-## Implemented Features
+## Design
+- **Responsive Layout:** Centered card-style interface.
+- **Modern Styling:** Uses CSS variables for theme management, smooth transitions, and subtle shadows.
+- **Dark Mode:** A carefully designed dark theme that is easy on the eyes.
 
-### Core Functionality
-- **Add Tasks:** Users can type a task into an input field and click a button to add it to the list.
-- **Remove Tasks:** Users can click on any task in the list to remove it.
+## Implementation Details
+- **index.html:** Defines the application structure and includes the theme toggle button.
+- **style.css:** Contains the base styles and theme-specific CSS variable overrides.
+- **main.js:** Handles task logic, theme toggling, and defines the `<todo-item>` Web Component.
 
-### Design and UI
-- **Clean Interface:** A minimalist and clean design that focuses on the core to-do list functionality.
-- **Interactive Elements:** Tasks are interactive and can be removed with a single click, providing immediate visual feedback.
-
-### Technical Implementation
-- **Web Components:** Each task in the list is a custom `<todo-item>` element, encapsulating the structure, style, and behavior of a single to-do.
-- **DOM Manipulation:** The application uses modern JavaScript to handle user input, create new elements, and update the DOM in response to user actions.
-- **Event Handling:** Event listeners are used to manage adding and removing tasks.
-
-## Current Plan
-
-The current plan is to build a self-contained To-Do List application for practice purposes. The following steps will be taken:
-
-1.  **Create the HTML structure** for the app, including a text input, an 'Add' button, and a container for the to-do list.
-2.  **Implement the main JavaScript logic** to handle user interactions.
-3.  **Define a custom `<todo-item>` Web Component** to represent each task. This component will include its own styling and logic for removal.
-4.  **Apply CSS styles** to create a simple and intuitive user interface.
+## Current State
+The application is fully functional with light and dark mode support and is deployed to GitHub.

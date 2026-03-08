@@ -1,6 +1,21 @@
 const todoInput = document.getElementById('todo-input');
 const addButton = document.getElementById('add-button');
 const todoList = document.getElementById('todo-list');
+const themeToggle = document.getElementById('theme-toggle');
+
+// Theme Management
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+  document.body.classList.add('dark-mode');
+  themeToggle.textContent = '☀️';
+}
+
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  const isDark = document.body.classList.contains('dark-mode');
+  themeToggle.textContent = isDark ? '☀️' : '🌙';
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
 
 // Web Component for a single to-do item
 class TodoItem extends HTMLElement {
@@ -14,16 +29,17 @@ class TodoItem extends HTMLElement {
       <style>
         li {
           padding: 15px;
-          background-color: #fff;
-          border-bottom: 1px solid #ddd;
+          background-color: var(--root-bg, #fff);
+          color: var(--text-color, #333);
+          border-bottom: 1px solid var(--input-border, #ddd);
           cursor: pointer;
           display: flex;
           justify-content: space-between;
           align-items: center;
-          transition: background-color 0.2s;
+          transition: background-color 0.2s, color 0.2s;
         }
         li:hover {
-            background-color: #f9f9f9;
+            background-color: var(--item-hover, #f9f9f9);
         }
         li.completed {
             text-decoration: line-through;
