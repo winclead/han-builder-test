@@ -1,32 +1,29 @@
-# YouTube Trending Videos App
+# Simple To-Do List App
 
 ## Overview
 
-This application displays the current trending videos on YouTube in South Korea. It provides a simple and intuitive interface for users to discover popular content without needing to visit the YouTube website directly. The app is built with modern, framework-less web technologies, including Web Components, to ensure a modular and maintainable codebase.
+This is a simple, client-side To-Do List application. It allows users to add tasks to a list and remove them by clicking on them. This project serves as a great practice example for fundamental web development concepts without relying on external APIs.
 
 ## Implemented Features
 
 ### Core Functionality
-- **Trending Video Display:** Fetches and displays a list of the most popular videos on YouTube in South Korea. Each video is presented with its title, thumbnail image, and a direct link to the video on YouTube.
+- **Add Tasks:** Users can type a task into an input field and click a button to add it to the list.
+- **Remove Tasks:** Users can click on any task in the list to remove it.
 
 ### Design and UI
-- **Modern Aesthetics:** The app features a clean and visually appealing design with a focus on user experience. It uses a modern color palette, typography, and layout to create an engaging interface.
-- **Responsive Design:** The layout is fully responsive and adapts to different screen sizes, ensuring a seamless experience on both desktop and mobile devices.
-- **Interactive Elements:** Video thumbnails and titles are interactive, with hover effects and clear visual cues to enhance usability.
+- **Clean Interface:** A minimalist and clean design that focuses on the core to-do list functionality.
+- **Interactive Elements:** Tasks are interactive and can be removed with a single click, providing immediate visual feedback.
 
 ### Technical Implementation
-- **Web Components:** The video list is rendered using a custom `<youtube-video>` element, encapsulating the structure, style, and behavior of each video item. This promotes reusability and separation of concerns.
-- **ES Modules:** The JavaScript code is organized into modules, with separate files for the main application logic and the Web Component definition.
-- **YouTube Data API:** The application uses the YouTube Data API v3 to fetch trending video data. It requires a user-provided API key for authentication.
+- **Web Components:** Each task in the list is a custom `<todo-item>` element, encapsulating the structure, style, and behavior of a single to-do.
+- **DOM Manipulation:** The application uses modern JavaScript to handle user input, create new elements, and update the DOM in response to user actions.
+- **Event Handling:** Event listeners are used to manage adding and removing tasks.
 
 ## Current Plan
 
-The current development focuses on creating a visually appealing and user-friendly interface to display trending YouTube videos. The following steps will be taken:
+The current plan is to build a self-contained To-Do List application for practice purposes. The following steps will be taken:
 
-1. **Create the basic HTML structure** for the main page, including a container for the video list.
-2. **Implement the main JavaScript logic** to fetch data from the YouTube Data API and populate the video list. This will include a placeholder for the user's API key.
-3. **Define a custom `<youtube-video>` Web Component** to represent each video item in the list. This component will manage its own HTML structure and styling using a Shadow DOM.
-4. **Apply modern CSS styles** to create a visually appealing and responsive layout. This will include styles for the main page and the `<youtube-video>` component.
-5. **Provide clear instructions** for the user on how to obtain and use their own YouTube Data API key to run the application.
-
-By following this plan, we will create a functional and well-designed application that effectively showcases trending YouTube content.
+1.  **Create the HTML structure** for the app, including a text input, an 'Add' button, and a container for the to-do list.
+2.  **Implement the main JavaScript logic** to handle user interactions.
+3.  **Define a custom `<todo-item>` Web Component** to represent each task. This component will include its own styling and logic for removal.
+4.  **Apply CSS styles** to create a simple and intuitive user interface.

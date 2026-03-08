@@ -1,88 +1,66 @@
+const todoInput = document.getElementById('todo-input');
+const addButton = document.getElementById('add-button');
+const todoList = document.getElementById('todo-list');
 
-// Please replace 'YOUR_API_KEY' with your own YouTube Data API key.
-const API_KEY = 'YOUR_API_KEY';
-const videoContainer = document.getElementById('video-container');
-
-// Web Component for displaying a YouTube video
-class YouTubeVideo extends HTMLElement {
+// Web Component for a single to-do item
+class TodoItem extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
   }
 
   connectedCallback() {
-    const videoId = this.getAttribute('video-id');
-    const title = this.getAttribute('title');
-    const thumbnailUrl = this.getAttribute('thumbnail-url');
-
     this.shadowRoot.innerHTML = `
       <style>
-        .video-item {
-          border: 1px solid #ddd;
-          border-radius: 8px;
-          overflow: hidden;
-          margin: 10px;
-          width: 300px;
-          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-          transition: transform 0.2s;
+        li {
+          padding: 15px;
+          background-color: #fff;
+          border-bottom: 1px solid #ddd;
+          cursor: pointer;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          transition: background-color 0.2s;
         }
-        .video-item:hover {
-          transform: translateY(-5px);
+        li:hover {
+            background-color: #f9f9f9;
         }
-        .video-item a {
-          text-decoration: none;
-          color: inherit;
-        }
-        .video-item img {
-          width: 100%;
-          height: auto;
-        }
-        .video-item h3 {
-          padding: 10px;
-          margin: 0;
-          font-size: 16px;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
+        li.completed {
+            text-decoration: line-through;
+            color: #aaa;
         }
       </style>
-      <div class="video-item">
-        <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank">
-          <img src="${thumbnailUrl}" alt="${title}">
-          <h3>${title}</h3>
-        </a>
-      </div>
+      <li>
+        <slot></slot>
+      </li>
     `;
+
+    const li = this.shadowRoot.querySelector('li');
+    li.addEventListener('click', () => {
+      this.remove();
+    });
   }
 }
 
-customElements.define('youtube-video', YouTubeVideo);
+customElements.define('todo-item', TodoItem);
 
-async function getTrendingVideos() {
-  if (API_KEY === 'YOUR_API_KEY') {
-    videoContainer.innerHTML = '<p>Please enter your YouTube Data API key in main.js</p>';
-    return;
+function addTask() {
+  const taskText = todoInput.value.trim();
+  if (taskText === '') {
+    return; // Don't add empty tasks
   }
 
-  try {
-    const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&chart=mostPopular&regionCode=KR&maxResults=24&key=${API_KEY}`);
-    const data = await response.json();
+  const todoItem = document.createElement('todo-item');
+  todoItem.textContent = taskText;
+  todoList.appendChild(todoItem);
 
-    if (data.items) {
-      data.items.forEach(item => {
-        const videoElement = document.createElement('youtube-video');
-        videoElement.setAttribute('video-id', item.id);
-        videoElement.setAttribute('title', item.snippet.title);
-        videoElement.setAttribute('thumbnail-url', item.snippet.thumbnails.medium.url);
-        videoContainer.appendChild(videoElement);
-      });
-    } else {
-      videoContainer.innerHTML = '<p>Could not fetch trending videos.</p>';
-    }
-  } catch (error) {
-    console.error('Error fetching trending videos:', error);
-    videoContainer.innerHTML = '<p>An error occurred while fetching videos.</p>';
-  }
+  todoInput.value = ''; // Clear the input field
+  todoInput.focus();
 }
 
-getTrendingVideos();
+addButton.addEventListener('click', addTask);
+todoInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    addTask();
+  }
+});

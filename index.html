@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>인기 유튜브 컨텐츠</title>
+    <title>Simple To-Do List</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>실시간 인기 유튜브</h1>
-    <div id="video-container"></div>
+    <div id="root">
+      <h1>My To-Do List</h1>
+      <div class="input-container">
+        <input type="text" id="todo-input" placeholder="Add a new task..." />
+        <button id="add-button">Add</button>
+      </div>
+      <ul id="todo-list"></ul>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>
