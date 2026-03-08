@@ -9,6 +9,7 @@ A semantic word-guessing game inspired by Semantle (semantle.com) and its Korean
 - **Rank Indicator:** Gauges how close you are (e.g., "Top 10", "Getting Close").
 - **Theme Support:** Fully responsive Dark and Light modes.
 - **Win State:** A modal appears when the secret word is found.
+- **Partnership Inquiry:** A modern form powered by Formspree for collaborations.
 - **Persistence:** Remembers theme preferences.
 
 ## Design

@@ -152,9 +152,69 @@ h1 {
   overflow-x: auto;
   border-radius: 8px;
   border: 1px solid var(--border-color);
+  margin-bottom: 40px;
 }
 
-table {
+/* Partnership Section */
+.partnership-section {
+  margin-top: 50px;
+  padding: 30px;
+  background-color: var(--header-bg);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.partnership-section h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.partnership-section p {
+  opacity: 0.8;
+  margin-bottom: 25px;
+  font-size: 0.95rem;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+#partnership-form input,
+#partnership-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+#partnership-form textarea {
+  resize: vertical;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Modal */
+
   width: 100%;
   border-collapse: collapse;
 }
