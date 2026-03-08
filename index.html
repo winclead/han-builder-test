@@ -1,18 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Simple To-Do List</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semantle - English Version</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div id="root">
       <button class="theme-toggle" id="theme-toggle" title="Toggle Theme">🌙</button>
-      <h1>My To-Do List</h1>
-      <div class="input-container">
-        <input type="text" id="todo-input" placeholder="Add a new task..." />
-        <button id="add-button">Add</button>
+      <header>
+        <h1>Semantle</h1>
+        <p id="game-info">Guess the secret word based on semantic similarity.</p>
+      </header>
+
+      <main>
+        <div class="input-section">
+          <div class="input-group">
+            <input type="text" id="guess-input" placeholder="Enter a word..." autocomplete="off" />
+            <button id="guess-button">Guess</button>
+          </div>
+          <p id="feedback-msg"></p>
+        </div>
+
+        <div id="stats-summary" class="hidden">
+          <p>The nearest word so far is <span id="nearest-score">0.00</span></p>
+        </div>
+
+        <div class="table-container">
+          <table id="guess-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Guess</th>
+                <th class="similarity-col">Similarity</th>
+                <th>Rank</th>
+              </tr>
+            </thead>
+            <tbody id="guess-history">
+              <!-- Guesses will be inserted here -->
+            </tbody>
+          </table>
+        </div>
+      </main>
+
+      <div id="win-modal" class="modal hidden">
+        <div class="modal-content">
+          <h2>Congratulations!</h2>
+          <p>You guessed the secret word: <strong id="secret-word-display"></strong></p>
+          <p>It took you <span id="total-guesses"></span> guesses.</p>
+          <button id="restart-button">Play Again</button>
+        </div>
       </div>
-      <ul id="todo-list"></ul>
     </div>
     <script src="main.js"></script>
   </body>

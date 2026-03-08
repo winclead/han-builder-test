@@ -1,24 +1,25 @@
-# Simple To-Do List App
+# Semantle - English Version
 
 ## Overview
-A simple, modern To-Do List application built with vanilla HTML, CSS, and JavaScript. It features a clean UI, Web Components for task items, and support for both light and dark themes.
+A semantic word-guessing game inspired by Semantle (semantle.com) and its Korean version (꼬맨틀). Users guess a secret word based on its semantic similarity.
 
 ## Features
-- **Task Management:** Add tasks via input field.
-- **Task Deletion:** Click on a task to remove it.
-- **Web Components:** Uses custom elements for encapsulated task items.
-- **Theme Support:** Toggle between Light and Dark modes.
-- **Persistence:** Theme preference is saved in local storage.
+- **Semantic Guessing:** Enter words to see their similarity score to the secret word.
+- **Progress Tracking:** A table shows guess history with similarity scores and progress bars.
+- **Rank Indicator:** Gauges how close you are (e.g., "Top 10", "Getting Close").
+- **Theme Support:** Fully responsive Dark and Light modes.
+- **Win State:** A modal appears when the secret word is found.
+- **Persistence:** Remembers theme preferences.
 
 ## Design
-- **Responsive Layout:** Centered card-style interface.
-- **Modern Styling:** Uses CSS variables for theme management, smooth transitions, and subtle shadows.
-- **Dark Mode:** A carefully designed dark theme that is easy on the eyes.
+- **Modern UI:** Clean, card-based layout with a focus on readability.
+- **Interactive Elements:** Progress bars provide visual feedback on proximity.
+- **Responsive:** Works perfectly on both desktop and mobile.
 
 ## Implementation Details
-- **index.html:** Defines the application structure and includes the theme toggle button.
-- **style.css:** Contains the base styles and theme-specific CSS variable overrides.
-- **main.js:** Handles task logic, theme toggling, and defines the `<todo-item>` Web Component.
+- **index.html:** Core structure with input group and results table.
+- **style.css:** Modern styling using CSS variables for theme management and progress indicators.
+- **main.js:** Manages game state, theme toggling, and a mocked similarity engine for the prototype (Secret Word: `COFFEE`).
 
-## Current State
-The application is fully functional with light and dark mode support and is deployed to GitHub.
+## Deployment
+- Hosted on GitHub: [https://github.com/winclead/han-builder-test](https://github.com/winclead/han-builder-test)
